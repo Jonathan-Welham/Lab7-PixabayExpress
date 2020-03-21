@@ -1,0 +1,36 @@
+<%- include("templates/header.ejs") -%>
+    <body class="text-center">
+​
+        <h1> Pixabay Search Results </h1>
+
+        <form action="/results" class="container">
+
+            Keyword: <input type="text" name="keyword"> <br>
+            Orientation: <select id="orientation" name="orientation">
+                            <option value="all">Select</option>
+                            <option value="horizontal">Horizontal</option>
+                            <option value="vertical">Vertical</option>
+                          </select>
+            <button> Search </button>
+
+        </form> <br>
+        <%let randomIndex = Math.floor(Math.random() * 20);%>
+        <%let randomIndex2 = Math.floor(Math.random() * 20);%>
+        <%let randomIndex3 = Math.floor(Math.random() * 20);%>
+        <%let randomIndex4 = Math.floor(Math.random() * 20);%>
+
+        <div class="row justify-content-center">
+            <span><%=images.hits[randomIndex].likes%></span><br><br>
+            <img src='<%= images.hits[randomIndex].largeImageURL %>' width='250'>
+            <span><%=images.hits[randomIndex2].likes%></span><br><br>
+            <img src='<%= images.hits[randomIndex2].largeImageURL %>' width='250'>
+            <span><%=images.hits[randomIndex3].likes%></span><br><br>
+            <img src='<%= images.hits[randomIndex3].largeImageURL %>' width='250'>
+            <span><%=images.hits[randomIndex4].likes%></span><br><br>
+            <img src='<%= images.hits[randomIndex4].largeImageURL %>' width='250'>
+        </div>
+
+        <script>
+            let orient = $("#orientation").val()
+        </script>
+    <%- include("templates/footer.ejs") -%>
